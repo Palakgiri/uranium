@@ -2,8 +2,13 @@ const express = require('express');
 var bodyParser = require('body-parser');
 
 const route = require('./routes/route.js');
+const mongoose= require('mongoose');
 
 const app = express();
+mongoose.connect("mongodb+srv://Uranium-Batch:aruSjkdGdfhc9MRK@functionup.eel5r.mongodb.net/palak",{
+    useNewUrlParser: true })
+    .then(()=> console.log("connected to mangoDB"))
+    .catch(err => console.error(err))
 
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: true }));
